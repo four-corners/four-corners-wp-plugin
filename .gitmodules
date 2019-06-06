@@ -1,0 +1,3 @@
+[submodule "fourcorners.js"]
+	path = fourcorners.js
+	url = git@github.com:four-corners/fourcorners.js.git
