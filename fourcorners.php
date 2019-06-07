@@ -16,6 +16,6 @@ function four_corners_plugin_scripts() {
 	wp_enqueue_script( 'four_corners_script', plugin_dir_url( __FILE__ ) . 'fourcorners-wp-plugin.js', array(), $plugin_ver, true );
 }
 
-add_action( 'wp_enqueue_scripts', 'four_corners_scripts' );
+add_action( 'wp_enqueue_scripts', 'four_corners_plugin_scripts' );
 
 ?>
