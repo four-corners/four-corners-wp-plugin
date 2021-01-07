@@ -8,6 +8,10 @@
  * Author URI: https://www.fourcornersproject.org
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 function four_corners_plugin_scripts() {
 	$plugin_ver = '0.0.4';
 	$lib_ver = '0.2.0';
@@ -18,4 +22,22 @@ function four_corners_plugin_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'four_corners_plugin_scripts' );
 
-?>
+function register_four_corners_block() {
+
+	$handle = 'four_corners_block';
+	$src = plugins_url( 'block.js', __FILE__ );
+	$deps = array( 'wp-blocks', 'wp-element', 'wp-editor' );
+	$ver = false;
+	$in_footer = $false;	
+
+	wp_register_script( $handle, $src, $deps, $ver, $in_footer );
+
+	$name = 'four_corners_embed';
+	$args = array(
+		'editors_script' => 'four_corners_block'
+	);
+
+	register_block_type( $name, $args );
+}
+
+add_action( 'init', 'register_four_corners_block' );
