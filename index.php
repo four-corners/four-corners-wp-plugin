@@ -20,7 +20,7 @@ add_action( 'init', 'fourcorners_register_blocks' );
 
 //ENQUE LIBRARY FILES
 function fourcorners_enque_library_files() { 
-	$ver = "0.7.2";
+	$ver = "0.7.3";
 	wp_enqueue_script( 'fourcorners_js', plugin_dir_url( __FILE__ ) . 'assets/fourcorners.min.js?v=' . $ver );
 	wp_enqueue_style( 'fourcorners_css',  plugin_dir_url( __FILE__ ) . 'assets/fourcorners.min.css?v=' . $ver );
 }

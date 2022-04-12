@@ -19,7 +19,8 @@ import {
   Button,
   ResponsiveWrapper,
 } from "@wordpress/components";
-import FourCorners from "../assets/fourcorners.js";
+import {FourCorners} from "../assets/fourcorners.min.js";
+console.log(FourCorners);
 // import wasmSrc from "@contentauth/sdk/dist/assets/wasm/toolkit_bg.wasm?file";
 // import workerSrc from "@contentauth/sdk/dist/cai-sdk.worker.min.js?file";
 
@@ -32,13 +33,13 @@ export default function Edit({ attributes, setAttributes }) {
 
   useEffect(() => {
     // console.log(instance);
-    if(instance) instance.destroy();
-    const newInstance = new FourCorners(
-      blockRef.current,
-      {},
-      { wasmSrc, workerSrc }
-    );
-    setInstance(newInstance);
+    // if(instance) instance.destroy();
+    // const newInstance = new FourCorners(
+    //   blockRef.current,
+    //   {},
+    //   { wasmSrc, workerSrc }
+    // );
+    // setInstance(newInstance);
   }, [attributes.image]);
 
 

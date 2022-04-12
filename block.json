@@ -13,7 +13,6 @@
 	"textdomain": "fourcorners",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./assets/fourcorners.min.css",
-	"style": "file:./assets/fourcorners.min.css",
 	"attributes": {
 		"image": {
 			"type": "object",
