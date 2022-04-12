@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "fourcorners/block",
+	"version": "0.1.1",
+	"title": "Four Corners Project",
+	"category": "media",
+	"icon": "grid-view",
+	"description": "",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "fourcorners",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./assets/fourcorners.min.css",
+	"style": "file:./assets/fourcorners.min.css",
+	"attributes": {
+		"image": {
+			"type": "object",
+			"default": null
+		},
+		"caption": {
+			"type": "string"
+		}
+	}
+}
