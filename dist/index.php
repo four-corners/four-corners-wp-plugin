@@ -17,12 +17,12 @@ function fourcorners_register_block() {
 }
 add_action( 'init', 'fourcorners_register_block' );
 
-//ENQUE LIBRARY FILES
-function fourcorners_enque_library_files() { 
+//ENQUEUE LIBRARY FILES
+function fourcorners_enqueue_library_files() { 
 	wp_enqueue_script( 'fourcorners_js', plugin_dir_url( __FILE__ ) . 'assets/fourcorners.min.js' );
 	wp_enqueue_script( 'fourcorners_block_js', plugin_dir_url( __FILE__ ) . 'build/plugin.js' );
 }
-add_action( 'wp_enqueue_scripts', 'fourcorners_enque_library_files' );
+add_action( 'wp_enqueue_scripts', 'fourcorners_enqueue_library_files' );
 
 //ADD INLINE CSS
 function fourcorners_add_inline_css() { 

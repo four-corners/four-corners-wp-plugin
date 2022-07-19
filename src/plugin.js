@@ -1,4 +1,4 @@
-const PLUGIN_PATH = "/wp-content/plugins/four-corners-wp-block";
+const PLUGIN_PATH = "/wp-content/plugins/four-corners-wp-plugin";
 const CSS_PATH = `${PLUGIN_PATH}/assets/fourcorners.min.css`;
 
 const initPlugin = async () => {
