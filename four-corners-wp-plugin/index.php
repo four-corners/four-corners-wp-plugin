@@ -3,7 +3,7 @@
  * Plugin Name: Four Corners Project WP Block
  * Plugin URI: 
  * Description: 
- * Version: 0.2.0
+ * Version: 0.2.4
  * Author: Four Corners Project, Corey Tegeler
  *
  * @package four-corners-project-wp-block

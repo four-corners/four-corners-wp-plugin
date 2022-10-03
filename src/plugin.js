@@ -22,8 +22,11 @@ const addCss = async () => {
 const initElem = (elem) => {
 	const imgSrc = elem.getAttribute("data-src");
 	fetch(imgSrc).then(() => {
-		elem.querySelector("img").src = imgSrc;
+		elem.querySelectorAll("img, amp-img").forEach(img => {
+			img.src = imgSrc;
+		});
 		new FourCorners({
+			src: imgSrc,
 			container: elem,
 			caption: true,
 			credit: true,
