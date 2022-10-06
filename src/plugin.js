@@ -38,4 +38,37 @@ const initElem = (elem) => {
 	});
 }
 
-window.addEventListener("load", initPlugin);
+var ua = navigator.userAgent.toLowerCase();
+if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') == -1) {
+    window.addEventListener("load", addCss);
+    document.addEventListener("DOMContentLoaded", function () {
+        addCss
+        var lazyloadFourcorners;
+
+        if ("IntersectionObserver" in window) {
+
+            var fourcornersObserver = new IntersectionObserver(function (entries, observer) {
+                console.debug(entries);
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+
+                        var fourcorners = entry.target;
+                        initElem(fourcorners);
+                        fourcorners.classList.remove(".fc-embed");
+                        fourcornersObserver.unobserve(fourcorners);
+                    }
+
+                });
+
+            });
+
+            lazyloadFourcorners = document.querySelectorAll(".fc-embed");
+            lazyloadFourcorners.forEach(function (lazyForcornersImage) {
+                fourcornersObserver.observe(lazyForcornersImage);
+            });
+        }
+    });
+
+} else {
+    window.addEventListener("load", initPlugin);
+}
