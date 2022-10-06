@@ -42,13 +42,11 @@ var ua = navigator.userAgent.toLowerCase();
 if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') == -1) {
     window.addEventListener("load", addCss);
     document.addEventListener("DOMContentLoaded", function () {
-        addCss
         var lazyloadFourcorners;
 
         if ("IntersectionObserver" in window) {
 
             var fourcornersObserver = new IntersectionObserver(function (entries, observer) {
-                console.debug(entries);
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
 
