@@ -39,6 +39,12 @@ const initElem = (elem) => {
 }
 
 var ua = navigator.userAgent.toLowerCase();
+function loadFourcornersElement(fourcorners, fourcornersObserver) {
+    initElem(fourcorners);
+    fourcorners.classList.remove(".fc-embed");
+    fourcorners.classList.remove(".fc-click-load")
+    fourcornersObserver.unobserve(fourcorners);
+}
 if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') == -1) {
     window.addEventListener("load", addCss);
     document.addEventListener("DOMContentLoaded", function () {
@@ -49,11 +55,7 @@ if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') == -1) {
             var fourcornersObserver = new IntersectionObserver(function (entries, observer) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
-
-                        var fourcorners = entry.target;
-                        initElem(fourcorners);
-                        fourcorners.classList.remove(".fc-embed");
-                        fourcornersObserver.unobserve(fourcorners);
+                        loadFourcornersElement(entry.target, fourcornersObserver);
                     }
 
                 });
@@ -63,6 +65,9 @@ if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') == -1) {
             lazyloadFourcorners = document.querySelectorAll(".fc-embed");
             lazyloadFourcorners.forEach(function (lazyForcornersImage) {
                 fourcornersObserver.observe(lazyForcornersImage);
+                lazyForcornersImage.onclick = function () { loadFourcornersElement(lazyForcornersImage, fourcornersObserver); };
+                lazyForcornersImage.classList.add(".fc-click-load")
+
             });
         }
     });
@@ -70,3 +75,4 @@ if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') == -1) {
 } else {
     window.addEventListener("load", initPlugin);
 }
+
