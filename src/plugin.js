@@ -38,4 +38,41 @@ const initElem = (elem) => {
 	});
 }
 
-window.addEventListener("load", initPlugin);
+var ua = navigator.userAgent.toLowerCase();
+function loadFourcornersElement(fourcorners, fourcornersObserver) {
+    initElem(fourcorners);
+    fourcorners.classList.remove(".fc-embed");
+    fourcorners.classList.remove(".fc-click-load")
+    fourcornersObserver.unobserve(fourcorners);
+}
+if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') == -1) {
+    window.addEventListener("load", addCss);
+    document.addEventListener("DOMContentLoaded", function () {
+        var lazyloadFourcorners;
+
+        if ("IntersectionObserver" in window) {
+
+            var fourcornersObserver = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        loadFourcornersElement(entry.target, fourcornersObserver);
+                    }
+
+                });
+
+            });
+
+            lazyloadFourcorners = document.querySelectorAll(".fc-embed");
+            lazyloadFourcorners.forEach(function (lazyForcornersImage) {
+                fourcornersObserver.observe(lazyForcornersImage);
+                lazyForcornersImage.onclick = function () { loadFourcornersElement(lazyForcornersImage, fourcornersObserver); };
+                lazyForcornersImage.classList.add(".fc-click-load")
+
+            });
+        }
+    });
+
+} else {
+    window.addEventListener("load", initPlugin);
+}
+
