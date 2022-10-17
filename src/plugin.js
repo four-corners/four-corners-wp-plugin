@@ -65,7 +65,6 @@ if (ua.indexOf('safari') != -1 && ua.indexOf('chrome') == -1) {
             lazyloadFourcorners = document.querySelectorAll(".fc-embed");
             lazyloadFourcorners.forEach(function (lazyForcornersImage) {
                 fourcornersObserver.observe(lazyForcornersImage);
-                lazyForcornersImage.onclick = function () { loadFourcornersElement(lazyForcornersImage, fourcornersObserver); };
                 lazyForcornersImage.classList.add(".fc-click-load")
 
             });
