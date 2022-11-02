@@ -3,7 +3,7 @@
  * Plugin Name: Four Corners Project WP Block
  * Plugin URI: 
  * Description: 
- * Version: 0.2.7
+ * Version: 0.2.8
  * Author: Four Corners Project, Corey Tegeler
  *
  * @package four-corners-project-wp-block
@@ -19,8 +19,8 @@ add_action( 'init', 'fourcorners_register_block' );
 
 //ENQUEUE LIBRARY FILES
 function fourcorners_enqueue_library_files() { 
-	wp_enqueue_script( 'fourcorners_js', plugin_dir_url( __FILE__ ) . 'assets/fourcorners.min.js', array(), '0.2.7' );
-	wp_enqueue_script( 'fourcorners_block_js', plugin_dir_url( __FILE__ ) . 'build/plugin.js', array(), '0.2.7' );
+	wp_enqueue_script( 'fourcorners_js', plugin_dir_url( __FILE__ ) . 'assets/fourcorners.min.js', array(), '0.2.8' );
+	wp_enqueue_script( 'fourcorners_block_js', plugin_dir_url( __FILE__ ) . 'build/plugin.js', array(), '0.2.8' );
 }
 add_action( 'wp_enqueue_scripts', 'fourcorners_enqueue_library_files' );
 
