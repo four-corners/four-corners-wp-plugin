@@ -1,6 +1,8 @@
 const PLUGIN_PATH = "/wp-content/plugins/four-corners-wp-plugin";
 const CSS_PATH = `${PLUGIN_PATH}/assets/fourcorners.min.css`;
 
+console.log("four-corners-wp-plugin: v0.2.10")
+
 const initPlugin = async () => {
 	const fcElems = document.querySelectorAll(".fc-embed");
 	if(fcElems.length <= 0) return;

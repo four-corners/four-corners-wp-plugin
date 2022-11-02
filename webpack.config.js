@@ -1,6 +1,8 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const defaultConfig = require("@wordpress/scripts/config/webpack.config");
+const TerserPlugin = require( 'terser-webpack-plugin' );
+
 module.exports = {
 	...defaultConfig,
 	experiments: {
@@ -25,9 +27,35 @@ module.exports = {
 				{
 					from: "build/*",
 					to: "../dist",
+                    globOptions: {
+                        dot: true,
+                    },
 				},
 			],
 		}),
 		...defaultConfig.plugins,
 	],
+
+    // This is copied from upstream, except drop_console is set to false
+    // to allow for console.log lines.
+    optimization: {
+        minimizer: [
+			new TerserPlugin( {
+				parallel: true,
+				terserOptions: {
+					output: {
+						comments: /translators:/i,
+					},
+					compress: {
+						passes: 2,
+                        drop_console: false,
+					},
+					mangle: {
+						reserved: [ '__', '_n', '_nx', '_x' ],
+					},
+				},
+				extractComments: false,
+			} ),
+		],
+    },
 };

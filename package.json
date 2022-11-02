@@ -1,6 +1,6 @@
 {
   "name": "four-corners-wp-plugin",
-  "version": "0.2.7",
+  "version": "0.2.10",
   "description": "",
   "main": "src/index.js",
   "repository": {
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "watch": "wp-scripts start src/*.js --output-path=build/",
-    "build": "wp-scripts build src/*.js --output-path=build/"
+    "build": "./build.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
