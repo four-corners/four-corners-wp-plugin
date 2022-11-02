@@ -27,6 +27,9 @@ module.exports = {
 				{
 					from: "build/*",
 					to: "../dist",
+                    globOptions: {
+                        dot: true,
+                    },
 				},
 			],
 		}),
